@@ -46,7 +46,7 @@ API de autenticação e autorização usando JWT, Spring Boot, JPA, H2, Spring S
 1. Instale **Java 21+** e **Maven**
 2. Clone o projeto:
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/DenilsonMarcio/jwt.git
    cd jwt
    ```
 3. Execute:
