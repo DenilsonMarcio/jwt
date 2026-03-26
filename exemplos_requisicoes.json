@@ -1,0 +1,87 @@
+{
+  "info": "Exemplos de requisições para a API JWT",
+  "endpoints": [
+    {
+      "nome": "Registrar novo usuário",
+      "metodo": "POST",
+      "url": "http://localhost:8080/api/auth/register",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "username": "joao_silva",
+        "password": "senha_forte_123",
+        "email": "joao@example.com"
+      },
+      "resposta_sucesso": {
+        "status": 201,
+        "body": {
+          "id": 3,
+          "username": "joao_silva",
+          "email": "joao@example.com",
+          "message": "Usuário registrado com sucesso!"
+        }
+      }
+    },
+    {
+      "nome": "Fazer login",
+      "metodo": "POST",
+      "url": "http://localhost:8080/api/auth/login",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "username": "admin",
+        "password": "admin123"
+      },
+      "resposta_sucesso": {
+        "status": 200,
+        "body": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY3ODM5MjAxNywiZXhwIjoxNjc4Mzk1NjE3fQ.abc123..."
+      }
+    },
+    {
+      "nome": "Acessar endpoint protegido (exemplo)",
+      "metodo": "GET",
+      "url": "http://localhost:8080/api/users",
+      "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY3ODM5MjAxNywiZXhwIjoxNjc4Mzk1NjE3fQ.abc123..."
+      },
+      "resposta_sucesso": {
+        "status": 200,
+        "body": [
+          {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@example.com"
+          }
+        ]
+      }
+    }
+  ],
+  "usuarios_teste_iniciais": [
+    {
+      "username": "admin",
+      "password": "admin123",
+      "email": "admin@example.com"
+    },
+    {
+      "username": "user",
+      "password": "user123",
+      "email": "user@example.com"
+    }
+  ],
+  "endpoints_publicos": [
+    "POST /api/auth/register",
+    "POST /api/auth/login",
+    "GET /swagger-ui.html",
+    "GET /v3/api-docs",
+    "GET /h2-console"
+  ],
+  "endpoints_protegidos": [
+    "GET /api/users",
+    "POST /api/users",
+    "PUT /api/users/{id}",
+    "DELETE /api/users/{id}"
+  ]
+}
+
